@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping List</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Shopping List</h1>
+        <div class="logo">
+          <img src="./images/logo3.svg" alt="shopping" class="shopping-logo" />
+        </div>
+      </header>
+
+      <div class="main-wrapper">
+        <main>
+          <div class="gen-information">
+            <h2>liczba pozycji: 0 <span class="quantity"></span></h2>
+            <h2>koszt: <span class="total-price">0</span></h2>
+          </div>
+          <form>
+            <input type="text" class="add-product-input" />
+            <button class="add-product-btn" type="submit">
+              <i class="fas fa-plus"></i>
+            </button>
+          </form>
+          <div class="information">
+            <h3>NAZWA</h3>
+            <h3>CENA</h3>
+          </div>
+          <div class="products-container">
+            <ul class="products-list">
+              <div class="product">
+                <li class="product-text">kaszanka</li>
+                <li class="product-price">22</li>
+                <button class="trash-btn"><i class="fas fa-times"></i></button>
+              </div>
+              <div class="product">
+                <li class="product-text">kaszanka</li>
+                <li class="product-price">22</li>
+                <button class="trash-btn"><i class="fas fa-times"></i></button>
+              </div>
+              <div class="product">
+                <li class="product-text">kaszanka</li>
+                <li class="product-price">22</li>
+                <button class="trash-btn"><i class="fas fa-times"></i></button>
+              </div>
+              <div class="product">
+                <li class="product-text">kaszanka</li>
+                <li class="product-price">22</li>
+                <button class="trash-btn"><i class="fas fa-times"></i></button>
+              </div>
+              <div class="product">
+                <li class="product-text">kaszanka</li>
+                <li class="product-price">22</li>
+                <button class="trash-btn"><i class="fas fa-times"></i></button>
+              </div>
+              <div class="product">
+                <li class="product-text">kaszanka</li>
+                <li class="product-price">22</li>
+                <button class="trash-btn"><i class="fas fa-times"></i></button>
+              </div>
+            </ul>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

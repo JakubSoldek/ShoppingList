@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background: #fed40d;
+}
+.wrapper {
+  width: 100%;
+  margin: auto;
+  padding: 1rem 0;
+}
+h1 {
+  font-family: "Merienda", cursive;
+  color: #6c63ff;
+  font-size: 1.5rem;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.logo {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-wrapper {
+  background: white;
+  border-radius: 1rem;
+}
+main {
+  width: 90%;
+  /* min-height: 100vh; */
+  margin: auto;
+  padding: 1rem 0;
+}
+.gen-information {
+  display: flex;
+  justify-content: space-between;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+form input,
+form button {
+  border: none;
+  background: #f5f5f5;
+  font-size: 2rem;
+  padding: 0.5rem;
+}
+form input {
+  min-width: 50%;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+form button {
+  /* background: gray; */
+  color: green;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+.information {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem 0 3rem;
+}
+.product {
+  display: flex;
+  list-style: none;
+  background: #f5f5f5;
+  border-radius: 1rem;
+  padding-left: 0.5rem;
+  font-size: 1.5rem;
+  /* justify-content: space-between; */
+  align-items: center;
+  margin: 1rem 0;
+}
+.product-text {
+  width: 76%;
+}
+
+.product-price {
+  width: 14%;
+}
+.trash-btn {
+  color: red;
+  width: 10%;
+  border-style: none;
+  background: #f5f5f5;
+  font-size: 1.5rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
