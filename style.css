@@ -6,6 +6,7 @@
 body {
   font-family: "Poppins", sans-serif;
   background: #fed40d;
+  color: rgba(0, 0, 0, 0.507);
 }
 .wrapper {
   width: 100%;
@@ -15,7 +16,7 @@ body {
 h1 {
   font-family: "Merienda", cursive;
   color: #6c63ff;
-  font-size: 1.5rem;
+  font-size: 2rem;
   width: 50%;
   display: flex;
   align-items: center;
@@ -30,6 +31,7 @@ h1 {
 }
 
 header {
+  margin-left: 1rem;
   width: 90%;
   display: flex;
   justify-content: space-between;
@@ -38,12 +40,13 @@ header {
 .main-wrapper {
   background: white;
   border-radius: 1rem;
+  animation: content 0.5s;
 }
 main {
   width: 90%;
   /* min-height: 100vh; */
   margin: auto;
-  padding: 1rem 0;
+  padding: 2rem 0 1rem 0;
 }
 .gen-information {
   display: flex;
@@ -54,7 +57,7 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem 0;
+  padding: 1rem 0;
 }
 form input,
 form button {
@@ -67,11 +70,13 @@ form input {
   min-width: 50%;
   border-top-left-radius: 1rem;
   border-bottom-left-radius: 1rem;
+  outline-style: none;
 }
+
 form button {
   /* background: gray; */
-  color: green;
-  transition: all 0.4s ease;
+  color: rgba(0, 128, 0, 0.6);
+  transition: all 1s ease;
   cursor: pointer;
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
@@ -80,7 +85,21 @@ form button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 3rem 0 3rem;
+  padding: 0 0 0 3rem;
+}
+.count-btn {
+  height: 3rem;
+  width: 3rem;
+  transition: all 1s ease;
+  cursor: pointer;
+  border-radius: 50%;
+  border-style: none;
+  font-weight: bold;
+  font-size: 1rem;
+  color: green;
+}
+.products-list {
+  transition: all 2s ease;
 }
 .product {
   display: flex;
@@ -93,19 +112,80 @@ form button {
   align-items: center;
   margin: 1rem 0;
 }
+/* .fall-product {
+  transform: translateY(8rem) rotateZ(20deg);
+  opacity: 0.4;
+} */
 .product-text {
-  width: 76%;
+  width: 72%;
 }
 
 .product-price {
-  width: 14%;
+  width: 18%;
+}
+.product-price input {
+  width: 100%;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  border: none;
+  background: #f5f5f5;
+  font-size: 2rem;
+  outline-style: none;
 }
 .trash-btn {
-  color: red;
+  color: rgba(255, 0, 0, 0.6);
   width: 10%;
   border-style: none;
   background: #f5f5f5;
   font-size: 1.5rem;
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
+}
+input::placeholder {
+  color: rgba(0, 0, 0, 0.1);
+}
+.add-product-input.warning::placeholder {
+  color: red;
+}
+
+#woman {
+  animation: slide 2s ease;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-30%);
+  }
+  25% {
+    transform: translateX(-30%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.line {
+  font-size: 100%;
+  overflow: hidden;
+}
+.anim-typewriter {
+  animation: typewriter 1s;
+}
+
+@keyframes typewriter {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+@keyframes content {
+  from {
+    transform: translateY(100vh);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
