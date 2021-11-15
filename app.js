@@ -14,7 +14,8 @@ let quantityJs = 0;
 addButton.addEventListener("click", addProduct);
 //nie potafię uruchomić funkcji find total dla każdego inputaw
 // momencie zmiany jego wartości czyli event change
-countBtn.addEventListener("click", findTotal);
+//arr.addEventListener("click", findTotal); - nie działa 
+// countBtn.addEventListener("click", findTotal);
 productList.addEventListener("click", deleteProduct);
 
 
@@ -61,11 +62,20 @@ function addProduct(event){
             productInput.placeholder = "can't be empty";
                 }
 
+
+                //wywołanie funkcji findTotal na nowopowstałe inputy ceny(price) 
+                for (let i = 0; i < arr.length; i++) {
+                    // console.log(arr[i]);
+                    arr[i].addEventListener('change', findTotal);
+                }
+                
 }
 
 function findTotal(){
     let tot = 0;
     for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i].value);
+        arr[i].value = arr[i].value.replace(/,/g, '.');
         if(parseFloat(arr[i].value))
         tot += parseFloat(arr[i].value);
           }
