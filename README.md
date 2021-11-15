@@ -1,17 +1,17 @@
-my version of shopping list 
+my version of shopping list <br>
 
-features:
--add product
--delete product
--dynamic sum price products
--dynamic quantity count
--full responsively
+features: <br>
+-add product <br>
+-delete product <br>
+-dynamic sum price products <br>
+-dynamic quantity count <br>
+-full responsively <br> <br>
 
 
-Stack:
+Stack:<br>
 
-HTML
-CSS
-JavaScript
-flexbox
+HTML<br>
+CSS<br>
+JavaScript<br>
+flexbox<br>
 Live demo: https://jakubsoldek.github.io/ShoppingList/
