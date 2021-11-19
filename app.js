@@ -4,9 +4,12 @@ const addButton = document.querySelector(".add-product-btn")
 const productList = document.querySelector(".products-list");
 let quantity = document.querySelector(".quantity");
 let totalInput = document.getElementById('total');
+// console.log(productInput.value);
+
 
 const arr = document.getElementsByClassName("price-product-input");
 const countBtn = document.querySelector(".count-btn");
+
 
 let quantityJs = 0;
 
@@ -17,6 +20,9 @@ addButton.addEventListener("click", addProduct);
 //arr.addEventListener("click", findTotal); - nie działa 
 // countBtn.addEventListener("click", findTotal);
 productList.addEventListener("click", deleteProduct);
+document.addEventListener('DOMContentLoaded', getProductsStorage);
+
+
 
 
 function addProduct(event){
@@ -31,10 +37,13 @@ function addProduct(event){
     const newProduct = document.createElement('li');
     newProduct.innerText = productInput.value;
     newProduct.classList.add('product-text') ;
-
         if ( productInput.value.length > 0) {
 
             productDiv.appendChild(newProduct);
+
+//local storage
+            saveLocalTodos(productInput.value);
+
 
             const productPrice = document.createElement("li");
             productPrice.classList.add("product-price");
@@ -74,7 +83,7 @@ function addProduct(event){
 function findTotal(){
     let tot = 0;
     for (let i = 0; i < arr.length; i++) {
-        console.log(arr[i].value);
+        // console.log(arr[i].value);
         arr[i].value = arr[i].value.replace(/,/g, '.');
         if(parseFloat(arr[i].value))
         tot += parseFloat(arr[i].value);
@@ -84,16 +93,113 @@ function findTotal(){
 
 
 function deleteProduct(e){
-    
+
     const item = e.target;
 
     if(item.classList[0] === "fas"){
 
         const product = item.parentElement;
-            product.parentElement.remove();
+        removeStorageProducts(product.parentElement);
+
+        product.parentElement.remove();
 
         quantityJs--;
         quantity.innerText = quantityJs;
+
     }
+
+
     findTotal();
+}
+
+
+//local storage
+function saveLocalTodos(productStorage) {
+    let todos;
+    //check if is there any lcoal storage
+    if (localStorage.getItem('todos') === null){
+        todos = []
+    }else{
+        todos = JSON.parse(localStorage.getItem('todos'))
+    }
+    todos.push(productStorage);
+    localStorage.setItem("todos", JSON.stringify(todos));
+    // console.log(JSON.stringify(todos));
+    
+}
+
+function getProductsStorage() {
+
+    let todos;
+    //check if is there any lcoal storage
+    if (localStorage.getItem('todos') === null){
+        todos = []
+    }else{
+        todos = JSON.parse(localStorage.getItem('todos'))
+    }
+    todos.forEach(function(productStorage) {
+        
+    
+
+
+
+        const productDiv = document.createElement("div");
+        productDiv.classList.add("product");  
+        const newProduct = document.createElement('li');
+        newProduct.innerText = productStorage;
+        newProduct.classList.add('product-text') ;
+        
+           
+
+                productDiv.appendChild(newProduct);
+
+
+
+
+                const productPrice = document.createElement("li");
+                productPrice.classList.add("product-price");
+                const priceProductInput = document.createElement("input");
+                priceProductInput.classList.add("price-product-input");
+                // console.log(priceProductInput);
+                priceProductInput.placeholder = "$";
+                productDiv.appendChild(productPrice);
+                productPrice.appendChild(priceProductInput);
+
+                const trashButton = document.createElement("button");
+                trashButton.innerHTML = '<i class="fas fa-times"></i>';
+                trashButton.classList.add("trash-btn");
+                productDiv.appendChild(trashButton);
+                productList.appendChild(productDiv);
+
+                productInput.value = "";
+            
+                quantityJs++;
+                quantity.innerText = quantityJs;
+
+                 
+           
+                    //wywołanie funkcji findTotal na nowopowstałe inputy ceny(price) 
+                    for (let i = 0; i < arr.length; i++) {
+                        // console.log(arr[i]);
+                        arr[i].addEventListener('change', findTotal);
+                    }
+
+    });
+    
+}
+
+function removeStorageProducts(productStorage){
+
+    let todos;
+    //check if is there any lcoal storage
+    if (localStorage.getItem('todos') === null){
+        todos = []
+    }else{
+        todos = JSON.parse(localStorage.getItem('todos'))
+    }
+console.log(productStorage);
+console.log(productStorage.children[0].innerText);
+const todoIndex = productStorage.children[0].innerText;
+todos.splice(todos.indexOf(todoIndex), 1);
+localStorage.setItem("todos", JSON.stringify(todos));
 }
