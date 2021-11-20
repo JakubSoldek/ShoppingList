@@ -119,8 +119,8 @@ form button {
 }
 
 .products-list {
-  transition: all 2s ease;
   font-style: italic;
+  font-weight: bold;
 }
 
 .product {
@@ -205,16 +205,16 @@ input::placeholder {
 }
 
 .anim-typewriter {
-  animation: title-start 1s;
+  animation: title-start 1s cubic-bezier(0.61, -0.99, 0.7, -0.11);
 }
 
 @keyframes title-start {
   from {
-    height: 0%;
+    transform: scale(0.8);
   }
 
   to {
-    height: 100%;
+    transform: scale(1);
   }
 }
 
@@ -237,11 +237,11 @@ input::placeholder {
 
   @keyframes title-start {
     from {
-      height: 0%;
+      transform: scale(0.8);
     }
 
     to {
-      height: 50%;
+      transform: scale(1.2);
     }
   }
 }
