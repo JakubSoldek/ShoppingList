@@ -8,7 +8,6 @@ body {
   font-family: 'Comic Neue', cursive;
   background: #fed40d;
   color: rgba(0, 0, 0, 0.507);
-
 }
 
 .wrapper {
@@ -79,8 +78,6 @@ form button {
   font-size: 1.5rem;
   padding: 0.5rem;
   padding-left: 1rem;
-
-
 }
 
 form input {
@@ -88,11 +85,8 @@ form input {
   border-top-left-radius: 1rem;
   border-bottom-left-radius: 1rem;
   outline-style: none;
-
   font-family: 'Comic Neue', cursive;
   font-weight: 400;
-
-
 }
 
 form button {
@@ -135,10 +129,6 @@ form button {
   margin: 1rem 0;
 }
 
-/* .fall-product {
-  transform: translateY(8rem) rotateZ(20deg);
-  opacity: 0.4;
-} */
 .product-text {
   width: 72%;
 }
@@ -157,7 +147,6 @@ form button {
   outline-style: none;
   font-family: 'Comic Neue', cursive;
   font-style: italic;
-
 }
 
 .trash-btn {
@@ -177,9 +166,6 @@ input::placeholder {
 .add-product-input.warning::placeholder {
   color: rgba(255, 0, 0, 0.6);
 }
-
-
-
 
 #woman {
   animation: slide 2s ease;
@@ -233,16 +219,6 @@ input::placeholder {
     width: 50%;
     margin: auto;
     padding: 10vh 0 5vh 0;
-  }
-
-  @keyframes title-start {
-    from {
-      transform: scale(0.8);
-    }
-
-    to {
-      transform: scale(1.2);
-    }
   }
 }
 
