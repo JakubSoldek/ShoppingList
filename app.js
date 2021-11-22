@@ -163,6 +163,8 @@ function removeStorageProducts(productStorage) {
     } else {
         todos = JSON.parse(localStorage.getItem('todos'))
     }
+    console.log(productStorage);
+    console.log(productStorage.children[0].innerText);
     const todoIndex = productStorage.children[0].innerText;
     todos.splice(todos.indexOf(todoIndex), 1);
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -181,9 +183,11 @@ speechBtn.addEventListener('click', addProductViaSpeech);
 stopSpeechBtn.addEventListener('click', function () {
 
     click = !click;
-    // console.log(click);
-    // console.log(recognition);
+    console.log(click);
+    console.log(recognition);
 })
+
+
 recognition.addEventListener('end', () => click ? recognition.stop() : recognition.start());
 
 // recognition.addEventListener('end', recognition.start);
@@ -192,10 +196,9 @@ recognition.addEventListener('end', () => click ? recognition.stop() : recogniti
 
 function addProductViaSpeech(event) {
     event.preventDefault();
-    recognition.start();
-
+    console.log("dziala chwile");
     // recognition.stop();
-
+    recognition.start();
     recognition.addEventListener('result', e => {
         const transcript = Array.from(e.results).map(result => result[0]).map(result => result.transcript).join('');
         console.log(transcript);
@@ -235,7 +238,7 @@ function addProductViaSpeech(event) {
             quantity.innerText = quantityJs;
 
             productInput.classList.add("warning");
-            productInput.placeholder = "speak!";
+            productInput.placeholder = "can't be empty";
 
             //wywołanie funkcji findTotal na nowopowstałe inputy ceny(price) 
             for (let i = 0; i < arr.length; i++) {
@@ -244,7 +247,6 @@ function addProductViaSpeech(event) {
             }
         }
     });
-
 }
 
 
