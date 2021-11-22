@@ -8,12 +8,16 @@ body {
   font-family: 'Comic Neue', cursive;
   background: #fed40d;
   color: rgba(0, 0, 0, 0.507);
+  height: 100vh;
+  width: 100%;
+
 }
 
 .wrapper {
   width: 100%;
   margin: auto;
   padding: 1rem 0;
+
 }
 
 h1 {
@@ -46,6 +50,16 @@ header {
   border-radius: 1rem;
   animation: content 0.5s;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  background-image: linear-gradient(rgba(244, 244, 250, .8) 1px, transparent 0),
+    linear-gradient(#f4f4fa 1px, transparent 0),
+    linear-gradient(90deg, rgba(244, 244, 250, .8) 1px, transparent 0),
+    linear-gradient(90deg, #f4f4fa 1px, transparent 0),
+    linear-gradient(transparent 3px, #fff 0, #fff 94px, transparent 0),
+    linear-gradient(90deg, #f4f4fa 3px, transparent 0, transparent 94px, #f4f4fa 0);
+  background-size: 24px 24px, 96px 96px, 24px 24px, 96px 96px, 96px 96px, 96px 96px;
+  background-position-y: -1.5%;
+
 }
 
 main {
@@ -165,6 +179,15 @@ input::placeholder {
 
 .add-product-input.warning::placeholder {
   color: rgba(255, 0, 0, 0.6);
+}
+
+.speech-btn {
+  width: 50px;
+  height: 50px;
+}
+
+.speech-btn-off {
+  background: black;
 }
 
 #woman {
