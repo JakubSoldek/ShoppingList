@@ -8,10 +8,11 @@ const arr = document.getElementsByClassName("price-product-input");
 const countBtn = document.querySelector(".count-btn");
 const speechBtn = document.querySelector(".speech-btn");
 const stopSpeechBtn = document.querySelector(".stop");
+const voiceAnimationStart = document.querySelector(".bars");
+const microphoneIcon = document.querySelector(".fa-microphone");
 // console.log(stopSpeechBtn);
 
 let quantityJs = 0;
-// let click = 0;
 
 addButton.addEventListener("click", addProduct);
 productList.addEventListener("click", deleteProduct);
@@ -177,28 +178,34 @@ const recognition = new SpeechRecognition();
 recognition.interimResults = true;
 recognition.lang = 'pl-PL';
 
-let click = false;
+let keepRecognitionEnabled = true;
 
 speechBtn.addEventListener('click', addProductViaSpeech);
-stopSpeechBtn.addEventListener('click', function () {
 
-    click = !click;
-    console.log(click);
-    console.log(recognition);
+stopSpeechBtn.addEventListener('click', function () {
+    recognition.stop();
+    keepRecognitionEnabled = false;
+    microphoneIcon.style.display = "inline-block";
+    voiceAnimationStart.style.display = "none";
+    // speechBtn.removeEventListener('keepRecognitionEnabled', addProductViaSpeech);
 })
 
-
-recognition.addEventListener('end', () => click ? recognition.stop() : recognition.start());
-
+//add multiple products by voice
+recognition.addEventListener('end', () => keepRecognitionEnabled ? recognition.start() : recognition.stop());
 // recognition.addEventListener('end', recognition.start);
 
 
 
 function addProductViaSpeech(event) {
+   
+    microphoneIcon.style.display = "none";
+    voiceAnimationStart.style.display = "flex";
+
     event.preventDefault();
-    console.log("dziala chwile");
     // recognition.stop();
+
     recognition.start();
+     
     recognition.addEventListener('result', e => {
         const transcript = Array.from(e.results).map(result => result[0]).map(result => result.transcript).join('');
         console.log(transcript);
@@ -232,40 +239,16 @@ function addProductViaSpeech(event) {
             productDiv.appendChild(trashButton);
             productList.appendChild(productDiv);
 
-            productInput.value = "";
-
             quantityJs++;
             quantity.innerText = quantityJs;
-
-            productInput.classList.add("warning");
-            productInput.placeholder = "can't be empty";
 
             //wywołanie funkcji findTotal na nowopowstałe inputy ceny(price) 
             for (let i = 0; i < arr.length; i++) {
                 // console.log(arr[i]);
                 arr[i].addEventListener('change', findTotal);
             }
+            e.results[0].clear;
         }
     });
+
 }
-
-
-// stopSpeechBtn.addEventListener('click', function () {
-//     recognition.stop();
-//     console.log('Speech recognition has stopped.');
-// });
-
-//         productInput.value = "";
-
-//         quantityJs++;
-//         quantity.innerText = quantityJs;
-
-//       productInput.classList.add("warning");
-//         productInput.placeholder = "can't be empty";
-
-//     //wywołanie funkcji findTotal na nowopowstałe inputy ceny(price) 
-//     for (let i = 0; i < arr.length; i++) {
-//         // console.log(arr[i]);
-//         arr[i].addEventListener('change', findTotal);
-//     }
-// 
