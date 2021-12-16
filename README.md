@@ -5,7 +5,7 @@ features: <br>
 -delete product <br>
 -dynamic sum price products <br>
 -dynamic quantity count <br>
--add products with voice recognition 
+-add products with voice recognition <br>
 -full responsively <br> <br>
 
 
